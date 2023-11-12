@@ -1,4 +1,4 @@
-import { Stage, game, ColorLayer, BitmapText  } from "melonjs";
+import { Stage, game, ColorLayer, BitmapText, Renderable, pool, Vector2d } from "melonjs";
 
 class PlayScreen extends Stage {
     /**
@@ -7,16 +7,9 @@ class PlayScreen extends Stage {
     onResetEvent() {
         // add a gray background to the default Stage
         game.world.addChild(new ColorLayer("background", "#202020"));
-
-        // add a font text display object
-        // @ts-ignore
-        game.world.addChild(new BitmapText(game.viewport.width / 2, game.viewport.height / 2, {
-            font : "PressStart2P",
-            size : 4.0,
-            textBaseline : "middle",
-            textAlign : "center",
-            text : "Hello World !"
-        }));
+        game.world.gravity = new Vector2d()
+        const player = pool.pull("mainPlayer", 0, 0, 0)
+        game.world.addChild(player as Renderable)
     }
 };
 

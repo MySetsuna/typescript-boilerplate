@@ -14,7 +14,7 @@ const DataManifest = [
   {
     name: "dude",
     type: "image",
-    src: "/data/img/1 idle.png",
+    src: "/data/img/walk.png",
   },
 ];
 
